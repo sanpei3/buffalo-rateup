@@ -32,6 +32,7 @@ else
   #puts agent.page.body
   File.write(backup_file, agent.page.body)
   html = agent.page.body.force_encoding("SJIS").encode("UTF-8")
+  agent.get("http://"+router_ip+"/logout.html")
 end
 
 interfaces = { "Internet" =>    "Internet.*",
