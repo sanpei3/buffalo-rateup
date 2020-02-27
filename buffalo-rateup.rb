@@ -9,6 +9,7 @@ router_ip = "192.168.11.1"
 password = ARGV[1]
 
 backup_file ="/tmp/buffalo-rateup.html"
+backup_dir = "/tmp/BUFFALO-RATEUP/"
 html = ""
 if (File.exist?(backup_file) && (DateTime.now.to_time - File.mtime(backup_file)) <= 15)
   File.open(backup_file, "r:UTF-8") do |body|
@@ -31,6 +32,7 @@ else
   agent.get("http://"+router_ip+"/packet.html")
   #puts agent.page.body
   File.write(backup_file, agent.page.body)
+  File.write(backup_dir + Time.now.strftime("%y%m%d-%H%M") + ".html", agent.page.body)
   html = agent.page.body.force_encoding("SJIS").encode("UTF-8")
   agent.get("http://"+router_ip+"/logout.html")
 end
