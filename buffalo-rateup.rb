@@ -2,7 +2,10 @@
 #
 # tested Buffalo AP
 #    WHR-1166DHP3 Version 2.94
+#    WHR-1166DHP3 Version 2.95
 #    WSR-1166DHP3 Version 1.16
+#    WSR-1166DHP3 Version 1.18
+#    WSR-1166DHPL2 Version 1.08
 
 
 require 'pp'
@@ -13,20 +16,18 @@ interface = ARGV[1]
 password = ARGV[2]
 
 backup_file ="/tmp/buffalo-rateup-#{router_ip}.html"
-backup_dir = "/tmp/BUFFALO-RATEUP-#{router_ip}/"
 
 html = ""
 if (File.exist?(backup_file) && (DateTime.now.to_time - File.mtime(backup_file)) <= 15)
   File.open(backup_file, "r:UTF-8") do |body|
     body.each_line do |oneline|
-      html = html + oneline.force_encoding("SJIS").encode("UTF-8")
+      html = html + oneline
     end
   end
 else
   agent = Mechanize.new
   agent.get("http://"+router_ip+"/login.html")
   sleep(0.05)
-  
   agent.page.form_with(:id => "authform") do |form|
     form.field_with(:name => "nosave_Username").value = "admin"
     form.field_with(:name => "nosave_Password").value=password
@@ -34,9 +35,14 @@ else
   end
   sleep(0.05)
   agent.get("http://"+router_ip+"/packet.html")
-  File.write(backup_file, agent.page.body)
-  File.write(backup_dir + Time.now.strftime("%y%m%d-%H%M") + ".html", agent.page.body)
-  html = agent.page.body.force_encoding("SJIS").encode("UTF-8")
+
+  lang = agent.page.body.scan(/content=\"text\/html; charset=([^"]+)"/)[0][0]
+  if (lang == "UTF-8")
+    html = agent.page.body.force_encoding("UTF-8").encode("UTF-8")
+  elsif (lang == "Shift_JIS")
+    html = agent.page.body.force_encoding("SJIS").encode("UTF-8")
+  end
+  File.write(backup_file, html)
   agent.get("http://"+router_ip+"/logout.html")
 end
 
