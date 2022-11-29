@@ -117,12 +117,12 @@ interfaces = { "Internet" =>    nil,
 
 if (interface =~ /^[0-9]+/)
   packet_info = html.scan(/^var packet_info = \[\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\]/)
-  puts  packet_info[0][interface.to_i + 0]
   puts  packet_info[0][interface.to_i + 2]
+  puts  packet_info[0][interface.to_i + 0]
 elsif (interfaces[interface] != nil)
   packet_info = html.scan(/^var packet_info = \[\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\],\[ ([0-9]*), ([0-9]*), ([0-9]*), ([0-9]*)\]/)
-  puts  packet_info[0][interfaces[interface]]
   puts  packet_info[0][interfaces[interface] + 2]
+  puts  packet_info[0][interfaces[interface]]
 else
   puts 0
   puts 0
