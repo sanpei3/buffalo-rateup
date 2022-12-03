@@ -5,8 +5,8 @@
 #    WEX-1800AX4  Version 1.13
 #    WEX-1800AX4EA  Version 1.13
 
-require 'pp'
-require 'mechanize'
+#require 'pp'
+require 'date'
 
 router_ip = ARGV[0]
 interface = ARGV[1]
@@ -18,13 +18,14 @@ password = ARGV[2]
 backup_file ="/tmp/buffalo-rateup-#{router_ip}.html"
 
 html = ""
-if (File.exist?(backup_file) && (DateTime.now.to_time - File.mtime(backup_file)) <= 30)
+if (File.exist?(backup_file) && (DateTime.now.to_time - File.mtime(backup_file)) <= 120)
   File.open(backup_file, "r:UTF-8") do |body|
     body.each_line do |oneline|
       html = html + oneline
     end
   end
 else
+require 'mechanize'
   agent = Mechanize.new
 #  agent.redirect_ok = true
 #  agent.follow_meta_refresh = true
