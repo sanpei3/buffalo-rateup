@@ -1,9 +1,9 @@
 # coding: utf-8
 #
 # tested Buffalo AP
-#    WSR-2533DHPL  Version 1.08
-#    WEX-1800AX4  Version 1.13
-#    WEX-1800AX4EA  Version 1.13
+#    WSR-2533DHPL  Version 1.08, 1.09
+#    WEX-1800AX4  Version 1.13, 1.14
+#    WEX-1800AX4EA  Version 1.13, 1.14
 
 #require 'pp'
 require 'date'
