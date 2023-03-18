@@ -25,7 +25,10 @@ if (File.exist?(backup_file) && (DateTime.now.to_time - File.mtime(backup_file))
     end
   end
 else
-require 'mechanize'
+  require 'netrc'
+  n = Netrc.read
+  user, password = n[router_ip]
+  require 'mechanize'
   agent = Mechanize.new
 #  agent.redirect_ok = true
 #  agent.follow_meta_refresh = true
