@@ -13,7 +13,7 @@ Please refer sample configuration file(mrtg-sample.cfg) in the repository.
 Target[Buffalo_IP_1]: `/usr/bin/ruby /etc/buffalo-rateup.rb [Buffalo_IP] [InterfaceName]`
 ```
 
-Password for Ethernet Switch is in ~/.netrc.
+Password for Ethernet Switch is in ~/.netrc for buffalo-rateup.rb and buffalo-rateup-2.rb(buffalo-rateup-5.rb is not needed Password information).
 
 ```
 machine 192.168.11.1
@@ -34,3 +34,6 @@ buffalo-rateup-2.rb
 + WSR-2533DHPL  Version 1.08, 1.09
 + WEX-1800AX4  Version 1.13, 1.14
 + WEX-1800AX4EA  Version 1.13, 1.14
+
+buffalo-rateup-5.rb
++ WSR3600BE4P Version 5.01
