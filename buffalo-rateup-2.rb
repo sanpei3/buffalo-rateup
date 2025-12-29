@@ -2,8 +2,8 @@
 #
 # tested Buffalo AP
 #    WSR-2533DHPL  Version 1.08, 1.09
-#    WEX-1800AX4  Version 1.13, 1.14
-#    WEX-1800AX4EA  Version 1.13, 1.14
+#    WEX-1800AX4  Version 1.13, 1.14 1.16
+#    WEX-1800AX4EA  Version 1.13, 1.14 1.16
 
 #require 'pp'
 require 'date'

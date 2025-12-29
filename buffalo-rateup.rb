@@ -5,7 +5,7 @@
 #    WHR-1166DHP3 Version 2.95
 #    WSR-1166DHP3 Version 1.16
 #    WSR-1166DHP3 Version 1.18
-#    WSR-1166DHPL2 Version 1.08
+#    WSR-1166DHPL2 Version 1.08 1.12
 
 
 require 'date'

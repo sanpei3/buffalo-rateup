@@ -28,12 +28,12 @@ buffalo-rateup.rb
 + WHR-1166DHP3 Version 2.95
 + WSR-1166DHP3 Version 1.16
 + WSR-1166DHP3 Version 1.18
-+ WSR-1166DHPL2 Version 1.08
++ WSR-1166DHPL2 Version 1.08 1.12
 
 buffalo-rateup-2.rb
 + WSR-2533DHPL  Version 1.08, 1.09
-+ WEX-1800AX4  Version 1.13, 1.14
-+ WEX-1800AX4EA  Version 1.13, 1.14
++ WEX-1800AX4  Version 1.13, 1.14 1.16
++ WEX-1800AX4EA  Version 1.13, 1.14 1.16
 
 buffalo-rateup-5.rb
 + WSR3600BE4P Version 5.01
